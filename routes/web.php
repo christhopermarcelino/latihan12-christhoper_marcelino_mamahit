@@ -13,12 +13,14 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::group(['prefix' => 'search'], function() {
+Route::group(['prefix' => 'search'], function () {
     Route::get('/', [UserController::class, 'searchUser']);
     Route::get('/{id}', [UserController::class, 'findUser']);
 });
 
-Route::get('/gemini', function() {
-    return view('gemini');
+Route::get('/chat', function () {
+    return view('gemini.index');
 });
-Route::post('/gemini', [GeminiAIController::class, 'handleChat']);
+Route::post('/chat', [GeminiAIController::class, 'handleChat']);
+
+Route::resource('/history_chat', GeminiAIController::class);

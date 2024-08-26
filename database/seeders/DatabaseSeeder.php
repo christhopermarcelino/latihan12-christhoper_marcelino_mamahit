@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            HistoryChatSeeder::class
+            HistoryChatSeeder::class,
+            BiodataSeeder::class
         ]);
     }
 }

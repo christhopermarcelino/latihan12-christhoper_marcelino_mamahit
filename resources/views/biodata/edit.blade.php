@@ -1,0 +1,31 @@
+@extends('layouts.general')
+
+@section('content')
+<section class="container bg-white p-4 rounded shadow-sm mb-4">
+    <div class="mb-3">
+        <h1 class="fw-bold">Edit Biodata</h1>
+    </div>
+
+    <form method="POST" action="{{ route('biodata.update', $biodata->id) }}">
+        @csrf
+        @method('PUT')
+        <div class="mb-3">
+            <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
+            <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" value="{{ $biodata->nama_lengkap }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="nik" class="form-label">NIK</label>
+            <input type="text" class="form-control" id="nik" name="nik" value="{{ $biodata->nik }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="umur" class="form-label">Umur</label>
+            <input type="text" class="form-control" id="umur" name="umur" value="{{ $biodata->umur }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="alamat" class="form-label">Alamat</label>
+            <textarea class="form-control" name="alamat" cols="30" rows="2" required>{{ $biodata->alamat }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Submit</button>
+    </form>
+</section>
+@endsection

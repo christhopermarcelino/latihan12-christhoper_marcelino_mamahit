@@ -6,7 +6,7 @@
         <h1 class="fw-bold">Create Biodata</h1>
     </div>
 
-    <form method="POST" action="{{ route('biodata.store') }}">
+    <form method="POST" action="{{ route('biodata.store') }}" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
@@ -23,6 +23,10 @@
         <div class="mb-3">
             <label for="alamat" class="form-label">Alamat</label>
             <textarea class="form-control" name="alamat" cols="30" rows="2" required>{{ old('alamat') }}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Gambar</label>
+            <input class="form-control" type="file" id="image" name="image">
         </div>
         <button type="submit" class="btn btn-primary w-100">Submit</button>
     </form>

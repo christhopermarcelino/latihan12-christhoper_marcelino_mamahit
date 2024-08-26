@@ -15,6 +15,7 @@
                 <th>NIK</th>
                 <th>Umur</th>
                 <th>Alamat</th>
+                <th>Gambar</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -26,6 +27,11 @@
                 <td>{{ $item->nik }}</td>
                 <td>{{ $item->umur }}</td>
                 <td>{{ $item->alamat }}</td>
+                <td>
+                    @isset($item->image_path)
+                    <img src="{{ asset('storage/' . $item->image_path) }}" alt="Image" class="img-fluid img-thumbnail" style="width:200px;">
+                    @endisset
+                </td>
                 <td>
                     <a href="{{ route('biodata.edit', $item->id) }}" class="btn btn-primary btn-sm">Edit</a>
                     <form action="{{ route('biodata.destroy', $item->id) }}" method="POST" class="d-inline-block">

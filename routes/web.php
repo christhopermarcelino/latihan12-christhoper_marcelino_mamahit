@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BiodataController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\GeminiAIController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -27,3 +28,6 @@ Route::post('/chat', [GeminiAIController::class, 'handleChat']);
 Route::resource('/history_chat', GeminiAIController::class);
 
 Route::resource('biodata', BiodataController::class);
+
+// Route::get('category', [CategoryController::class, 'index']);
+Route::get('category', [CategoryController::class, 'products']);
